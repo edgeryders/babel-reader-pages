@@ -1,76 +1,180 @@
 * {
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *:focus {
-	outline: none;
+    outline: none;
 }
 
 html {
-	overflow: hidden;
+    overflow: hidden;
 }
 
-
 html, body {
-	font-family: 'Lora', serif;
-	padding: 0;
-	margin: 0;
-	height: 100%;
+    font-family: 'Lora', serif;
+    padding: 0;
+    margin: 0;
+    height: 100%;
 }
 
 body {
-	padding-bottom: 40px;
-	padding-right: 10px;
-	overflow-y: scroll;
-	padding-left: 10px;
-	padding-top: 20px;
-	min-width: 800px;
-	width: 100%;
+    overflow-y: scroll;
+    min-width: 800px;
+    width: 100%;
+}
 
-	-webkit-transition: all 600ms;
-	-moz-transition: all 600ms;
-	-ms-transition: all 600ms;
-	-o-transition: all 600ms;
-	transition: all 600ms;
+body, article {
+    transition: color 600ms;
+    transition: background 600ms;
 }
 
 section {
-	max-width: 600px;
+    max-width: 680px;
     min-height: 90%;
-	margin: auto;
+    margin: auto;
 }
 
-h1,h2 {
-	font-weight: bold;
-	font-size: 38px;
-	word-wrap: break-word;
+h1, h2 {
+    font-weight: bold;
+    font-size: 38px;
+    word-wrap: break-word;
 }
 
 article {
-	line-height: 30px;
-	font-size: 22px;
-	display: block;
-	word-wrap: break-word;
+    position: relative;
+    line-height: 30px;
+    font-size: 22px;
+    display: block;
+    word-wrap: break-word;
+    padding: 0 22px;
 }
 
 blockquote {
-	border-left: 4px solid deepskyblue;
-	margin-left: -19px;
-	padding-left: 15px;
-	margin-right: 0;
+    border-left: 4px solid deepskyblue;
+    margin-left: -19px;
+    padding-left: 15px;
+    margin-right: 0;
 }
 
 footer {
     height: 90%;
 }
 
-@media print {
-	body {
-		overflow: visible;
-	}
+.author.visible {
+    right: 100%;
+    transition-delay: 0;
+}
 
-	section {
-		color: #111 !important;
-	}
+.author {
+    font-size: 70%;
+    position: absolute;
+    right: 75%;
+    max-width: 25%;
+    min-width: max-content;
+    font-family: Helvetica, sans-serif;
+    z-index: -1;
+    transition: right 0.5s;
+}
+
+/*  */
+
+.yin, .yin article {
+    background: #fdfdfd;
+    color: #111;
+}
+
+.yang, .yang article {
+    background-color: #111;
+    color: #fafafa;
+}
+
+/* Discord styling */
+
+.quote>.title {
+    display: none;
+}
+
+@media print {
+    body {
+        overflow: visible;
+    }
+    section {
+        color: #111 !important;
+    }
+}
+
+/* Animations */
+
+.lds-dual-ring {
+    /*display: block;*/
+    width: 80px;
+    height: 80px;
+    margin: auto;
+}
+
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #000;
+    border-color: #000 transparent #000 transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Icomoon */
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?fpy1mm');
+    src: url('fonts/icomoon.eot?fpy1mm#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?fpy1mm') format('truetype'), url('fonts/icomoon.woff?fpy1mm') format('woff'), url('fonts/icomoon.svg?fpy1mm#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-drink:before {
+    content: "\e900";
+}
+
+.icon-drink1:before {
+    content: "\e901";
+}
+
+.icon-yinyang:before {
+    content: "\e902";
+}
+
+.icon-fork:before {
+    content: "\e903";
+}
+
+.icon-link:before {
+    content: "\e9cb";
 }
