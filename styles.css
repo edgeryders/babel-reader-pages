@@ -10,7 +10,7 @@
 html {}
 
 html, body {
-    font-family: 'Lora', serif;
+    font-family: 'Times New Roman', serif;
     padding: 0;
     margin: 0;
     height: 100%;
@@ -22,12 +22,14 @@ body {
 }
 
 a {
-    color: deepskyblue;
+    color: black;
+    text-decoration: underline;
 }
 
-body, article {
+body, article, .controls {
     transition: color 600ms;
     transition: background 600ms;
+    transition: border 600ms;
 }
 
 section {
@@ -36,10 +38,18 @@ section {
     margin: auto;
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5, h6, h7, h8 {
     font-weight: bold;
-    font-size: 38px;
     word-wrap: break-word;
+}
+
+h1 {
+    font-size: 2em;
+    padding: 0 22px;
+}
+
+h2 {
+    font-size: 1.2em;
 }
 
 article {
@@ -52,10 +62,9 @@ article {
 }
 
 blockquote {
-    border-left: 4px solid deepskyblue;
-    margin-left: -19px;
     padding-left: 15px;
     margin-right: 0;
+    margin-left: 0;
 }
 
 footer {
@@ -78,7 +87,7 @@ footer {
     transition: right 0.5s;
 }
 
-/*  */
+/* Theme sensitive stuff */
 
 .yin, .yin article {
     background: #fdfdfd;
@@ -88,6 +97,40 @@ footer {
 .yang, .yang article {
     background-color: #111;
     color: #fafafa;
+}
+
+.yin blockquote {
+    border-left: 4px solid #111;
+}
+
+.yang blockquote {
+    border-left: 4px solid #fafafa;
+}
+
+.yin a {
+    color: #111;
+}
+
+.yang a {
+    color: #fafafa;
+}
+
+.yin .fork-selector a.active {
+    background-color: #111;
+    color: #fafafa;
+}
+
+.yang .fork-selector a.active {
+    background-color: #fafafa;
+    color: #111;
+}
+
+.yin .controls {
+    border-left: 2px solid #111;
+}
+
+.yang .controls {
+    border-left: 2px solid #fafafa;
 }
 
 /* Fork selector */
@@ -122,8 +165,6 @@ footer {
 }
 
 .fork-selector a.active {
-    background-color: deepskyblue;
-    color: white;
     border-radius: 100%;
 }
 
@@ -137,15 +178,16 @@ footer {
     justify-content: center;
 }
 
-/* Elm debugger */
+/* Controls */
 
-body>div:last-child {
-    transition: opacity 300ms;
-    opacity: 0;
+.controls {
+    position: fixed;
+    font-size: 1.3em;
+    padding: 0 .5em;
 }
 
-body>div:last-child:hover {
-    opacity: 1;
+.controls>span {
+    cursor: pointer;
 }
 
 /* Discourse styling */
